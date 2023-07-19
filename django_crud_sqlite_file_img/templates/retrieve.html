@@ -1,0 +1,26 @@
+{%  extends 'layout.html' %}
+{% block body %}
+    <p class='text-right'><a href='/create' class='btn btn-success'>+ Create User</a></p>
+    <table class='table table-bordered'>
+        <thead>
+            <th>S.No</td>
+            <th>Name</td>
+            <th>Contact</td>
+            <th>Photo</td>
+            <th>Edit</td>
+            <th>Delete</td>
+        </thead>
+        <tbody>
+            {% for row in datas %}
+                <tr>
+                    <td>{{row.id}}</td>
+                    <td>{{row.name}}</td>
+                    <td>{{row.contact}}</td>
+                    <td><img src="{{row.filename.url}}" width="50"></td>
+                    <td><a href='{% url 'update_url' row.id %}' class='btn btn-primary'>Edit</a></td>
+                    <td><a href='{% url 'delete_url' row.id %}' class='btn btn-danger' onclick='return confirm("Are you sure to delete?")'>Delete</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
