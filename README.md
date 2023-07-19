@@ -1,0 +1,1 @@
+# django-crud-sqlite-file-img-project
